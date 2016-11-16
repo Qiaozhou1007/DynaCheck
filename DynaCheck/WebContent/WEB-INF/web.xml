@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 测试service功能，然而遇到了service不是servlet的错误 -->
+  <!-- 
+  <servlet>
+  	<servlet-name>ceshi</servlet-name>
+  	<servlet-class>project.dc.service.SystemService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ceshi</servlet-name>
+  	<url-pattern>/ceshi</url-pattern>
+  </servlet-mapping>
+   -->
 </web-app>
