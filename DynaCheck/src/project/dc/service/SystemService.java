@@ -15,10 +15,9 @@ public class SystemService {
 		List<AppSource> appData = new ArrayList<>();
 		appData=systemdao.getAppSource(appSource);
 		for(AppSource so : appData){
-			System.out.println(so.getCpuname());
+			System.out.println("到达service层"+so.getCpuname()+so.getCpuvalue());
 		}
 		return appData;
-		
 	}
 	
 	public String getDataData(){

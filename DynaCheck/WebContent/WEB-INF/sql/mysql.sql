@@ -17,7 +17,7 @@ insert into appSource(
 	memoryvalue,diskiovalue,
 	storagevalue,messagevalue
 	)values (
-	"WEB","50%|25%",
+	"WEB主机","50%|25%",
 	"80%|65%","100MB/s|10MB/s",
 	"85%|68%","10000|4500"
 	);

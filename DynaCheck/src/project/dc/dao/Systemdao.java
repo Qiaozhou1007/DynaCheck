@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.activation.DataSource;
+
 import project.dc.dao.interfa.SystemdaoIn;
 import project.dc.system.bean.AppSource;
 import project.dc.util.DBUtil;
@@ -29,14 +31,18 @@ public class Systemdao implements SystemdaoIn{
 				appSource.setDiskiovalue(rs.getString("diskiovalue"));
 				appSource.setStoragevalue(rs.getString("storagevalue"));
 				appSource.setMessagevalue(rs.getString("messagevalue"));
-				System.out.println(appSource.getCpuname());
+				//System.out.println(appSource.getCpuname());
 				appSourceList.add(appSource);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			
 		}
 		return appSourceList;//明天查询返回类型对值有无影响
+	}
+
+	@Override
+	public List<project.dc.system.bean.DataSource> getDataSource(project.dc.system.bean.DataSource dataSource) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
