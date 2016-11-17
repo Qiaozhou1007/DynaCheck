@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,9 +7,9 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$.ajax({
-			url:"http://localhost:8080/DynaCheck/systemServlet",
-			type:"post",
-			dataType:"",
+			url:"/DynaCheck/systemServlet",
+			type:"get",
+			dataType:"json",
 			success:function(data){
 				alert("成功！");
 			}

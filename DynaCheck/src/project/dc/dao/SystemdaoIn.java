@@ -1,4 +1,4 @@
-package project.dc.dao.interfa;
+package project.dc.dao;
 
 import java.util.List;
 import project.dc.system.bean.AppSource;
