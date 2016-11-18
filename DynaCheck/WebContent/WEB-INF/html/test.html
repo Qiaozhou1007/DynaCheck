@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$.ajax({
-			url:"/DynaCheck/systemServlet",
-			type:"get",
-			dataType:"json",
+			url:"http://localhost:8080/DynaCheck/systemServlet",
+			type:"post",
+			dataType:"",
 			success:function(data){
-				alert("成功！");
+				alert(data);
 			}
 		})
 	})

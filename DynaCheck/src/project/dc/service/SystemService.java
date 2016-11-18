@@ -5,20 +5,22 @@ import java.util.List;
 
 import project.dc.dao.impl.Systemdao;
 import project.dc.system.bean.AppSource;
+import project.dc.system.bean.DataSource;
 
 public class SystemService {
-	
-	public List<AppSource> getAppData(Systemdao systemdao){
-		AppSource appSource = new AppSource();
+	Systemdao systemdao = new Systemdao();
+	public List<AppSource> getAppData(){
 		List<AppSource> appData = new ArrayList<>();
-		appData=systemdao.getAppSource(appSource);
+		appData=systemdao.getAppSource();
 		for(AppSource so : appData){
-			System.out.println("到达service层"+so.getCpuname()+so.getCpuvalue());
+			System.out.println("测试值是否到达service层"+so.getCpuname());
 		}
 		return appData;
 	}
 	
-	public String getDataData(){
-		return null;
+	public List<DataSource> getDataData(){
+		List<DataSource> dataData = new ArrayList<>();
+		dataData=systemdao.getDataSource();
+		return dataData;
 	}
 }

@@ -56,4 +56,49 @@ insert into appSource(
 	"80%|65%","100MB/s|10MB/s",
 	"85%|68%","10000|4500"
 	);
+
+/*create table dc_system(
+	id integer primary key AUTO_INCREMENT,
+	appColumn varchar(30),
+	appRow varchar(30),
+	dataColumn varchar(30),
+	dataRow varchar(30)
+)engine=innodb default charset=utf8;
+
+create table dc_business(
+	id integer primary key AUTO_INCREMENT,
+	capColumn varchar(30),
+	capRow varchar(30),
+	amountColumn varchar(30),
+	amountRow varchar(30),
+	workColumn varchar(30),
+	workRow varchar(30)
+)engine=innodb default charset=utf8;
+*/
+/*create table sapp(
+	id integer primary key AUTO_INCREMENT,
+	sapp varchar(30)
+)engine=innodb default charset=utf8;
+create table sdata(
+	id integer primary key AUTO_INCREMENT,
+	sdata varchar(30)
+)engine=innodb default charset=utf8;
+*/
+alter table appSource drop cpuvalue,
+	drop memoryvalue,
+	drop diskiovalue,
+	drop storagevalue,
+	drop messagevalue;
+
+create table dataSource(
+	id integer primary key AUTO_INCREMENT,
+	columnname varchar(30)
+)engine=innodb default charset=utf8;
+
+create table appSource(
+	id integer primary key AUTO_INCREMENT,
+	columnname varchar(30)
+)engine=innodb default charset=utf8;
+
+insert into dataSource(columnname)values('a'),('b'),('c'),('w哈哈'),('d'),('e'),('f');
 	

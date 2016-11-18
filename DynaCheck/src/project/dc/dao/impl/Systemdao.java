@@ -9,28 +9,30 @@ import java.util.List;
 
 import project.dc.dao.SystemdaoIn;
 import project.dc.system.bean.AppSource;
+import project.dc.system.bean.DataSource;
 import project.dc.util.DBUtil;
 
 public class Systemdao implements SystemdaoIn{
 	
 	List<AppSource> appSourceList = new ArrayList<>();
+	List<DataSource> dataSourcesList = new ArrayList<>();
 	private static String sql="select * from appSource";
+	private static String sql2="select * from dataSource";
+	Connection connection = DBUtil.getConnectionS();
 	
 	@Override
-	public List<AppSource> getAppSource(AppSource appSource) {
-		Connection connection = DBUtil.getConnectionS();
+	public List<AppSource> getAppSource() {
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
-				appSource.setCpuname(rs.getString("cpuname"));
-				appSource.setCpuvalue(rs.getString("cpuvalue"));
-				appSource.setMemoryvalue(rs.getString("memoryvalue"));
-				appSource.setDiskiovalue(rs.getString("diskiovalue"));
-				appSource.setStoragevalue(rs.getString("storagevalue"));
-				appSource.setMessagevalue(rs.getString("messagevalue"));
-				//System.out.println(appSource.getCpuname());
+				AppSource appSource = new AppSource();
+				appSource.setCpuname(rs.getString("columnname"));
+				System.out.println("dao层测试"+appSource.getCpuname());
 				appSourceList.add(appSource);
+			}
+			for(AppSource as: appSourceList){
+				//System.out.println(as.getCpuname());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -39,8 +41,19 @@ public class Systemdao implements SystemdaoIn{
 	}
 
 	@Override
-	public List<project.dc.system.bean.DataSource> getDataSource(project.dc.system.bean.DataSource dataSource) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DataSource> getDataSource() {
+		try {
+			PreparedStatement pst = connection.prepareStatement(sql2);
+			ResultSet rs= pst.executeQuery();
+			while(rs.next()){
+				DataSource dataSource = new DataSource();
+				dataSource.setColumnname(rs.getString("columnname"));
+				dataSourcesList.add(dataSource);
+				System.out.println("daoceshi"+ dataSource.getColumnname());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dataSourcesList;
 	}
 }
