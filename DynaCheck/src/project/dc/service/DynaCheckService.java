@@ -12,7 +12,7 @@ public class DynaCheckService {
 		List<DynaCheckBean> dynaList = new ArrayList<>();
 		dynaList=dynaCheckdao.getDynaCheckBean();
 		for(DynaCheckBean so : dynaList){
-			System.out.println("测试值是否到达service层"+so.getCpuname());
+			//System.out.println("测试值是否到达service层"+so.getCpuname());
 		}
 		return dynaList;
 	}

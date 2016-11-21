@@ -2,18 +2,46 @@ package project.dc.system.bean;
 
 public class DynaCheckBean {
 	private String cpuname;
-	private String id;
+	private String said;
+	private String sdid;
+	private String bpid;
+	private String baid;
+	private String bwid;
 	private String system_app;
 	private String system_data;
 	private String biz_property;
 	private String biz_amount;
 	private String biz_work ;
 	
-	public String getId() {
-		return id;
+	public String getSaid() {
+		return said;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSaid(String said) {
+		this.said = said;
+	}
+	public String getSdid() {
+		return sdid;
+	}
+	public void setSdid(String sdid) {
+		this.sdid = sdid;
+	}
+	public String getBpid() {
+		return bpid;
+	}
+	public void setBpid(String bpid) {
+		this.bpid = bpid;
+	}
+	public String getBaid() {
+		return baid;
+	}
+	public void setBaid(String baid) {
+		this.baid = baid;
+	}
+	public String getBwid() {
+		return bwid;
+	}
+	public void setBwid(String bwid) {
+		this.bwid = bwid;
 	}
 	public String getSystem_app() {
 		return system_app;
