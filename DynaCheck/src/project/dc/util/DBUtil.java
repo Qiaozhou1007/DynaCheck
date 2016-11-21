@@ -8,29 +8,15 @@ import java.sql.SQLException;
 public class DBUtil {
 	private static String DRIVER="com.mysql.jdbc.Driver";
 	private static String URLS="jdbc:mysql://localhost:3306/CheckSystem";
-	private static String URLB="jdbc:mysql://localhost:3306/CheckSystem";
 	private static String USER="root";
 	private static String PASSWORD="123456";
 	private static Connection connection = null;
 	
-	//应用于巡检系统的数据库链接
-	public static Connection getConnectionS(){
+	//应用于巡检操作的数据库连接工具类
+	public static Connection getConnection(){
 		try {
 			Class.forName(DRIVER);
 			connection=DriverManager.getConnection(URLS,USER,PASSWORD);
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return connection;
-	}
-	//应用于巡检业务的数据库链接
-	public static Connection getConnectionB(){
-		try {
-			Class.forName(DRIVER);
-			connection=DriverManager.getConnection(URLB,USER,PASSWORD);
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

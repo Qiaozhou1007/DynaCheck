@@ -28,7 +28,7 @@ public class daotest {
 		String sql="SELECT * from appsource";
 		daotest dt = new daotest();
 		try {
-			Connection connection=DBUtil.getConnectionS();
+			Connection connection=DBUtil.getConnection();
 			PreparedStatement pst=connection.prepareStatement(sql);
 			System.out.println(pst);
 			ResultSet rs =pst.executeQuery();
