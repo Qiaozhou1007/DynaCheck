@@ -41,8 +41,51 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 				//System.out.println("dao层测试"+dynaCheckBean.getCpuname());
 				dynaCheckList.add(dynaCheckBean);
 			}
-			//PreparedStatement pst1 = connection.prepareStatement(sql1);
-			//ResultSet rs1 = connection
+			//sys app
+			PreparedStatement pst1 = connection.prepareStatement(sql1);
+			ResultSet rs1 = pst1.executeQuery();
+			while(rs1.next()){
+				DynaCheckBean dynaCheckBean= new DynaCheckBean();
+				dynaCheckBean.setSaid(rs1.getString(""));//sys app id
+				dynaCheckBean.setSystem_app(rs1.getString(""));//sys app name
+				dynaCheckList.add(dynaCheckBean);
+			}
+			//sys data
+			PreparedStatement pst2 = connection.prepareStatement(sql1);
+			ResultSet rs2 = pst2.executeQuery();
+			while(rs2.next()){
+				DynaCheckBean dynaCheckBean= new DynaCheckBean();
+				dynaCheckBean.setSdid(rs2.getString(""));
+				dynaCheckBean.setSystem_data(rs2.getString(""));
+				dynaCheckList.add(dynaCheckBean);
+			}
+			//biz property
+			PreparedStatement pst3 = connection.prepareStatement(sql1);
+			ResultSet rs3 = pst3.executeQuery();
+			while(rs3.next()){
+				DynaCheckBean dynaCheckBean= new DynaCheckBean();
+				dynaCheckBean.setBpid(rs3.getString(""));
+				dynaCheckBean.setBiz_property(rs3.getString(""));
+				dynaCheckList.add(dynaCheckBean);
+			}
+			//biz amount
+			PreparedStatement pst4 = connection.prepareStatement(sql1);
+			ResultSet rs4 = pst4.executeQuery();
+			while(rs4.next()){
+				DynaCheckBean dynaCheckBean= new DynaCheckBean();
+				dynaCheckBean.setBaid(rs4.getString(""));
+				dynaCheckBean.setBiz_amount(rs4.getString(""));
+				dynaCheckList.add(dynaCheckBean);
+			}
+			//biz work
+			PreparedStatement pst5 = connection.prepareStatement(sql1);
+			ResultSet rs5 = pst5.executeQuery();
+			while(rs5.next()){
+				DynaCheckBean dynaCheckBean= new DynaCheckBean();
+				dynaCheckBean.setBwid(rs5.getString(""));
+				dynaCheckBean.setBiz_work(rs5.getString(""));
+				dynaCheckList.add(dynaCheckBean);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
