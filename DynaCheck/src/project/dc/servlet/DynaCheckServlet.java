@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSONObject;
 
 import project.dc.service.DynaCheckService;
 import project.dc.system.bean.DynaCheckBean;
@@ -36,7 +37,20 @@ public class DynaCheckServlet extends HttpServlet{
 		space3 = dynaCheckService.getBizProperty();
 		space4 = dynaCheckService.getBizAmount();
 		space5 = dynaCheckService.getBizWork();
-		//系统巡检 应用主机
+		
+		JSONObject json = new JSONObject();
+		JSONObject json1 = new JSONObject();
+		JSONObject json2 = new JSONObject();
+
+		json1.put("appsource", space1);
+		json1.put("datasource", space2);
+		json2.put("property", space3);
+		json2.put("amount", space4);
+		json2.put("work", space5);
+		json.put("systemcheck", json1);
+		json.put("bizcheck", json2);
+		System.out.println(json);
+		/*
 		for(DynaCheckBean dcb : space1){
 			appsourcedata += "{"+'"'+"id"+'"'+":"+'"'+dcb.getSaid()+'"'+","+'"'+"columnname"+'"'+":"+'"'+dcb.getSystem_app()+'"'+"}"+",";
 		}
@@ -66,16 +80,18 @@ public class DynaCheckServlet extends HttpServlet{
 		}
 		work = work.substring(0,work.length()-1);
 		System.out.println(work);
-		String json= "{"+'"'+"dat"+'"'+":"+"{"+'"'+"system"+'"'+":"+
+		String jsonn= "{"+'"'+"dat"+'"'+":"+"{"+'"'+"system"+'"'+":"+
 					 "{"+'"'+"appsource"+'"'+":"+"["+appsourcedata+"]"+","+
 					 '"'+"datasource"+'"'+":"+"["+datasourcedata+"]"+"}"+","+
 					 '"'+"biz"+'"'+":"+"{"+'"'+"property"+'"'+":"+"["+property+"]"+","+
 					 '"'+"amount"+'"'+":"+"["+amount+"]"+","+
 					 '"'+"work"+'"'+":"+"["+work+"]"+"}"+"}";
+		*/			 
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		out.write(json);
+		//out.write(jsonn);
+		out.print(json);
 		out.close();
 		out.flush();
 	}

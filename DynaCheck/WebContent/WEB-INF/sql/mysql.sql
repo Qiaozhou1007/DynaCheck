@@ -1,7 +1,7 @@
 create database CheckSystem character set 'utf8' COLLATE 'utf8_general_ci';
 
 use CheckSystem;
-
+/*
 create table appSource(
 	id integer primary key AUTO_INCREMENT,
 	cpuname varchar(25),
@@ -102,7 +102,7 @@ create table appSource(
 
 insert into dataSource(columnname)values('a'),('b'),('c'),('w哈哈'),('d'),('e'),('f');
 
-
+*/
 create table dc(
 	id integer primary key AUTO_INCREMENT,
 	columnname varchar(30),
