@@ -101,4 +101,20 @@ create table appSource(
 )engine=innodb default charset=utf8;
 
 insert into dataSource(columnname)values('a'),('b'),('c'),('w哈哈'),('d'),('e'),('f');
+
+
+create table dc(
+	id integer primary key AUTO_INCREMENT,
+	columnname varchar(30),
+	dctype varchar(25),
+	tabletype varchar(25)
+)engine=innodb default charset=utf8;
+
+insert into dc(columnname,dctype,tabletype)values
+	("cp1","system","appsource"),
+	("cp2","system","datasource"),
+	("cp3","biz","property"),
+	("cp4","biz","amount"),
+	("cp5","biz","work");
 	
+select * from dc where dctype="system" and tabletype="appsource";
