@@ -13,7 +13,7 @@ import project.dc.util.DBUtil;
 
 public class DynaCheckdao implements DynaCheckdaoIn{
 	
-	private static String sql="select * from aibatch.dynackeck where  CHECK_LIST=? and CHECK_LIST_DTL=? and BUSINESS_LIST=?";
+	private static String sql="select * from aibatch.dynamic_Check where CHECK_LIST=? and CHECK_LIST_DTL=? and BUSINESS_LIST=?";
 	List<DynaCheckBean> beanList = new ArrayList<>();
 	Connection connection = DBUtil.getConnection();
 	
