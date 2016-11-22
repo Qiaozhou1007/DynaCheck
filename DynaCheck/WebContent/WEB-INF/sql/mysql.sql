@@ -117,4 +117,4 @@ insert into dc(columnname,dctype,tabletype)values
 	("cp4","biz","amount"),
 	("cp5","biz","work");
 	
-select * from dc where dctype="system" and tabletype="appsource";
+select * from dc where dctype="system" and tabletype="appsource" and id="1";

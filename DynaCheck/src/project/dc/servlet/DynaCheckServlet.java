@@ -10,45 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.alibaba.fastjson.JSONObject;
-
-import project.dc.service.DynaCheckService;
+import net.sf.json.JSONObject;
+import project.dc.dao.impl.DynaCheckdao;
 import project.dc.system.bean.DynaCheckBean;
 @WebServlet("/DynaCheckServlet")
 public class DynaCheckServlet extends HttpServlet{
 
-	private static List<DynaCheckBean> space1 = null;
-	private static List<DynaCheckBean> space2 = null;
-	private static List<DynaCheckBean> space3 = null;
-	private static List<DynaCheckBean> space4 = null;
-	private static List<DynaCheckBean> space5 = null;
+	private List<DynaCheckBean> dynaCheckList = null;
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
-		DynaCheckService dynaCheckService = new DynaCheckService();
-		space1 = dynaCheckService.getSystemApp();
-		space2 = dynaCheckService.getSystemData();
-		space3 = dynaCheckService.getBizProperty();
-		space4 = dynaCheckService.getBizAmount();
-		space5 = dynaCheckService.getBizWork();
-		
+		DynaCheckdao dynaCheckdao = new DynaCheckdao();	
+		String bizName = request.getParameter("checkList");
+		String pageName = request.getParameter("checkListDtl");
+		String tableName = request.getParameter("businessList");
+		dynaCheckList  = dynaCheckdao.getNames(bizName,pageName, tableName);
 		JSONObject json = new JSONObject();
-		JSONObject json1 = new JSONObject();
-		JSONObject json2 = new JSONObject();
-
-		json1.put("appsource", space1);
-		json1.put("datasource", space2);
-		json2.put("property", space3);
-		json2.put("amount", space4);
-		json2.put("work", space5);
-		json.put("systemcheck", json1);
-		json.put("bizcheck", json2);
-		System.out.println(json);
-		
+		json.put("tableData", dynaCheckList);
 		response.setHeader("Access-Control-Allow-Origin", "*");
-		response.setContentType("text/html;charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
 		out.print(json);
 		out.close();
 		out.flush();

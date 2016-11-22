@@ -7,11 +7,11 @@ import project.dc.dao.impl.DynaCheckdao;
 import project.dc.system.bean.DynaCheckBean;
 
 public class DynaCheckService {
-	DynaCheckdao dynaCheckdao = new DynaCheckdao();
+	/*DynaCheckdao dynaCheckdao = new DynaCheckdao();
 	//1
 	public List<DynaCheckBean> getSystemApp(){
 		List<DynaCheckBean> sa = new ArrayList<>();
-		sa=dynaCheckdao.getSystemAppsource();
+		sa=dynaCheckdao.getSystemAppsource(null, null);
 		for(DynaCheckBean so : sa){
 			System.out.println("测试值是否到达service层"+so.getSaid());
 		}
@@ -52,5 +52,5 @@ public class DynaCheckService {
 			System.out.println("测试值是否到达service层"+so.getBwid());
 		}
 		return bw;
-	}
+	}*/
 }
