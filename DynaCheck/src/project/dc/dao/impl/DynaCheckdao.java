@@ -14,7 +14,6 @@ import project.dc.util.SqlHelper;
 
 public class DynaCheckdao implements DynaCheckdaoIn{
 	
-	private static String sql ="select * from appsource";
 	private static String sql1="select * from dc where dctype='system' and tabletype='appsource';";//system appsource
 	private static String sql2="select * from dc where dctype='system' and tabletype='datasource';";//system datasource
 	private static String sql3="select * from dc where dctype='biz' and tabletype='property';";//biz property
@@ -26,7 +25,6 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 	List<DynaCheckBean> baList = new ArrayList<>();
 	List<DynaCheckBean> bwList = new ArrayList<>();
 	Connection connection = DBUtil.getConnection();
-	SqlHelper sqlhelper = new SqlHelper();
 	
 	@Override
 	public List<DynaCheckBean> getSystemAppsource() {
@@ -62,7 +60,6 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 			e.printStackTrace();
 		}
 		return sdList;
-		
 	}
 
 	@Override
@@ -81,7 +78,6 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 			e.printStackTrace();
 		}
 		return bpList;
-		
 	}
 
 	@Override
@@ -100,7 +96,6 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 			e.printStackTrace();
 		}
 		return baList;
-		
 	}
 
 	@Override
@@ -119,6 +114,5 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 			e.printStackTrace();
 		}
 		return bwList;
-		
 	}
 }
