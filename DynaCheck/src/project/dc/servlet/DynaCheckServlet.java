@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
+
 import project.dc.dao.impl.DynaCheckdao;
 import project.dc.system.bean.DynaCheckBean;
 @WebServlet("/DynaCheckServlet")
