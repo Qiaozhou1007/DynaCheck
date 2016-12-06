@@ -13,7 +13,7 @@ import project.dc.util.DBUtil;
 
 public class DynaCheckdao implements DynaCheckdaoIn{
 	
-	private static String sql="select * from aibatch.dynamic_Check where CHECK_LIST=? and CHECK_LIST_DTL=? and BUSINESS_LIST=?";
+	private static String sql="select * from aibatch.dynamic_Check where CHECK_LIST like ? and CHECK_LIST_DTL like ? and BUSINESS_LIST like ? order by id";
 	List<DynaCheckBean> beanList = new ArrayList<>();
 	Connection connection = DBUtil.getConnection();
 	
@@ -21,9 +21,12 @@ public class DynaCheckdao implements DynaCheckdaoIn{
 	public List<DynaCheckBean> getNames(String bizName,String pageName,String tableName) {
 		try {
 			PreparedStatement pst = connection.prepareStatement(sql);
-			pst.setString(1, bizName);
-			pst.setString(2, pageName);
-			pst.setString(3, tableName);
+			String bn = "%"+bizName+"%";
+			String pn = "%"+pageName+"%";
+			String tn = "%"+tableName+"%";
+			pst.setString(1, bn);
+			pst.setString(2, pn);
+			pst.setString(3, tn);
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()){
 				DynaCheckBean dynaCheckBean= new DynaCheckBean();
